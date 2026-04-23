@@ -6,6 +6,7 @@ const app = express();
 const PORT = 3000;
 
 const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 
 dotenv.config()
 
@@ -25,4 +26,6 @@ app.get('/', (req, res)=>{
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use('/',authRouter);
+app.use('/api/users', userRouter);
 app.listen(process.env.PORT || PORT, ()=> console.log('listening on port', PORT))
