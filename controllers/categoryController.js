@@ -49,9 +49,9 @@ module.exports = {
       const categoryItem = await Category.findById(id);
 
       if (!categoryItem)
-        res.status(404).json({ status: false, message: "not found" });
+       return res.status(404).json({ status: false, message: "not found" });
 
-      await Category.findByIdAndDelete(categoryItem);
+      await Category.findByIdAndDelete(id);
       res.status(200).json({ status: true, message: "deleted" });
     } catch (error) {
       res.status(500).json({ status: false, message: "An error occurred" });
