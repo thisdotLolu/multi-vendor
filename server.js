@@ -13,6 +13,7 @@ const foodRouter = require('./routes/food');
 const cartRouter = require('./routes/cart');
 const addressRouter = require('./routes/address')
 const orderRouter = require('./routes/orders')
+const driverRouter = require('./routes/driver')
 
 dotenv.config()
 
@@ -40,5 +41,7 @@ app.use('/api/food', foodRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/address', addressRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/drivers', driverRouter);
+
 
 app.listen(process.env.PORT || PORT, ()=> console.log('listening on port', PORT))
